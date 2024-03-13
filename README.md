@@ -1,0 +1,2 @@
+# research
+notes in c
