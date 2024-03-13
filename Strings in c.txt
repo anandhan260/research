@@ -1,0 +1,374 @@
+STRINGS:
+
+- collection of character.
+- array of character.
+- Strings should be closed with [].
+- strings ended with null char '\0'.
+
+Syntax of array is :
+
+  datatype_ arrayname[size];
+ex:
+  int_array[100];
+
+Syntax of String is:
+   
+  datatype_stringname[size];
+
+ex:
+  char_str[50];
+
+  
+
+1. print HELLO in str:
+
+#include <stdio.h>
+
+int main() {
+  char str[50] = "Hello";
+  printf("%s", str);
+ 
+  return 0;
+}
+
+
+2.print with space:
+
+#include <stdio.h>
+
+int main()
+{
+    char str[50];
+    scanf("%[^\n]s",str);
+    printf("%s",str);
+}
+
+3.print char with loop:
+
+#include <stdio.h>
+
+int main() {
+  char str[50];
+  int i;
+  scanf("%[^\n]s",str);
+  
+  for (i = 0; i < 10; ++i) {
+    printf("%c\n", str[i]);
+  }
+
+  return 0;
+}
+
+
+string methods:
+
+Commonly Used String Functions
+strlen() - calculates the length of a string
+strcpy() - copies a string to another
+strcmp() - compares two strings
+strcat() - concatenates two strings
+
+
+4.vowels count in string:
+
+#include<stdio.h>  
+void main ()  
+{  
+    char s[15] = "engineering";  
+    int i = 0;   
+    int count = 0;  
+    while(i<15)  
+    {  
+        if(s[i]=='a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'u' || s[i] == 'o')  
+        {  
+            count ++;  
+        }  
+        i++;  
+    }  
+    printf("The number of vowels %d",count);  
+}
+
+5.String methods:
+
+#include <stdio.h>
+#include <string.h>
+
+int main () {
+
+   char str1[50] = "virat";
+   char str2[50] = "kohli";
+   char str3[50];
+   int  len ;
+
+   /* copy str1 into str3 */
+   strcpy(str3, str1);
+   printf("copy string is:  %s\n", str3 );
+
+   /* concatenates str1 and str2 */
+   strcat( str1, str2);
+   printf("After concatenation string is:   %s\n", str1 );
+
+   /* total lenghth of str1 after concatenation */
+   len = strlen(str1);
+   printf("lenghth of string is :  %d\n", len );
+
+   return 0;
+}
+
+6.lower to upper case:
+
+#include <stdio.h>
+int main()
+{
+   char s[100];
+   scanf("%[^\n]s",s);
+   for(int i=0;i<s[i];i++){
+     if(i==0)
+     s[i]=s[i]-32;
+     else if(s[i]==32)
+     s[i+1]=s[i+1]-32;
+   }
+   printf("%s",s);
+}
+
+7.Number words in given string:
+
+#include <stdio.h>
+//#include <string.h>
+ 
+int main()
+{
+    char s[200];
+    int count = 0, i;
+ 
+    printf("Enter the string:\n");
+    scanf("%[^\n]s", s);
+    for (i = 0;s[i] != '\0';i++)
+    {
+        if (s[i] == ' ' && s[i+1] != ' ')
+            count++;    
+    }
+    printf("Number of words in given string are: %d\n", count+1 );
+}
+
+
+8.Alternate Char Displayed:
+
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char str[20];
+    int i=0;
+    scanf("%s",str);
+   
+    for(i=0;i<strlen(str);i=i+2)
+    {
+        printf("%c",str[i]);
+    }
+    return 0;
+}
+
+9.count of alphabets & digits & spl char.
+
+#include<stdio.h>
+int main()
+{
+    char string[100];
+    int a, d, s, i;
+
+    a = d = s = i = 0;
+    scanf("%[^\n]s",string);
+    //printf("Enter any string : ");
+    //gets(string);
+    while(string[i]!='\0')
+    {
+        if((string[i]>='a' && string[i]<='z') || (string[i]>='A' && string[i]<='Z'))
+        {
+            a++;
+        }
+        else if(string[i]>='0' && string[i]<='9')
+        {
+            d++;
+        }
+        else
+        {
+            s++;
+        }
+        i++;
+    }
+    printf("Alphabets = %d\n", a);
+    printf("Digits = %d\n", d);
+    printf("Special characters = %d\n", s);
+    return 0;
+}
+
+
+FUNCTION:
+
+what is function?
+
+Function is basically  a set of statements that takes inputs,
+perform some computation and produces output.
+
+syntax:
+ Return_type function_name(Arguments/inputs):
+
+ why use function:
+
+ 1.Reusability: Once the function defined ,it can be resused again and again.
+
+ 2.Abstraction: If you are just using the function, don't have worry about how it works inside.
+
+
+functions - library function EX: scanf, printf
+	  - User defined function.
+
+  1.area of rectangular using function:
+
+  #include <stdio.h>
+int areaofrec(int length,int breath) 
+{
+    int area;
+    area=length*breath;
+    return area;
+}
+
+int main()
+{
+    int l=4,b=5;
+    int area=areaofrec(l,b);
+    printf("%d\n",area);
+    
+}
+
+2. multiple time using same function:
+
+ #include <stdio.h>
+int areaofrec(int length,int breath) 
+{
+    int area;
+    area=length*breath;
+    return area;
+}
+
+int main()
+{
+    int l=4,b=5;
+    int area=areaofrec(l,b);
+    printf("%d\n",area);
+    
+     l=50,b=20;
+     area=areaofrec(l,b);
+     printf("%d",area);
+}
+
+
+3.multiple two num using function:
+
+ #include <stdio.h>
+int mul(int x,int y ) 
+{
+    int v;
+    v=x*y;
+    return v;
+}
+
+int main()
+{
+    int l=4,b=5;
+    int c=mul(l,b);
+    printf("%d\n",c);
+    
+     
+}
+
+4. add two numbers using function:
+
+ #include <stdio.h>
+int add(int x,int y) 
+{
+    int v;
+    v=x+y;
+    return v;
+}
+
+int main()
+{
+    int l=4,b=5;
+    int c=add(l,b);
+    printf("%d\n",c);
+}
+
+
+Functions types:
+
+Function with no arguments and no return value.
+Function with no arguments and a return value.
+Function with arguments and no return value.
+Function with arguments and with return value.
+
+
+functions aspects:
+
+ * Functions Declaration
+ * Functions call
+ * Functions Definition
+
+Function 1:
+   //Without arguments and with return type:
+
+#include<stdio.h>  
+int sum();  
+int main()  
+{ 
+    int c;
+    c=sum();
+    printf("%d",c);
+}  
+int sum()  
+{  
+    int a,b;   
+    scanf("\n%d %d",&a,&b);   
+    return a+b;
+}
+
+
+Function 2:
+  //With arguments and with out return type:
+
+#include<stdio.h>  
+void sub(int, int);  
+void main()  
+{  
+    int a,b;   
+    scanf("%d %d",&a,&b);  
+    sub(a,b);  
+}  
+void sub(int a, int b)  
+{  
+    printf("\n SUB:%d",a-b);      
+}
+
+Function 3:
+
+  //without arguments and without return
+
+#include<stdio.h>
+int add();
+ 
+int main()
+{
+    add();
+    return 0;
+}
+
+int add()
+{
+    int a,b,c;
+    scanf("%d%d",&a,&b);
+    c=a+b;
+    printf("\nTotal : %d",c);
+}
+
+
